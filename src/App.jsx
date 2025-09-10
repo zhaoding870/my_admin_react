@@ -1,8 +1,21 @@
+/**
+ * 
+ * @returns 系统根组件
+ */
+
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import Login from './pages/login'
+import Admin from './pages/admin'
+
 function App() {
   return (
-    <div>
-      App...
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Admin />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

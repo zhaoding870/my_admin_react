@@ -1,12 +1,31 @@
-# React + Vite
+## 1. 使用技术
+    react 18
+    react-router-dom 18
+    antd
+    redux
+    axios
+    jsoup
+    promise / await / async
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 2. 开发环境搭建
+    2.1 使用 Vite 创建项目
+        npm create vite@latest my_admin_react
+        检查 package.json 中 react 的版本是不是 18。
+        如果不是，可以手动安装
+        npm install react@18 react-dom@18
+    2.2 引入 antd 
+        npm install antd
+        把 antd 的版本修改为 4.24.12
+    2.3 antd 实现按需加载
+        npm install vite-plugin-style-import less consola --save-dev
+        修改 vite.config.js
+    2.4 引入路由
+        npm install react-router-dom@6
 
-Currently, two official plugins are available:
+## 3. 完成 login 组件的布局
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 4. 前后台交互 ajax
+    安装依赖包 axios
+        npm install axios
+    配置代码
+        修改 vite.config.js,添加 server 
