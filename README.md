@@ -29,3 +29,8 @@
         npm install axios
     配置代码
         修改 vite.config.js,添加 server 
+
+## 5. 实现登陆用户，跳转到后台主页
+    登陆成功后，保存用户到 内存
+    保存用户到 local storage 中 (localStorage),实现自动登陆功能
+        npm i store

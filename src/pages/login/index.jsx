@@ -1,9 +1,12 @@
 import React from 'react'
 
+import { useNavigate, Navigate } from 'react-router-dom'
+
 import {
     Button,
     Form,
-    Input
+    Input,
+    message
 } from 'antd'
 
 import {
@@ -12,6 +15,8 @@ import {
 } from '@ant-design/icons'
 
 import { reqLogin } from '../../api'
+import memoryUtils from '../../utils/memoryUtils'
+import storageUtils from '../../utils/storageUtils'
 import './login.less'
 
 import logo from './images/logo.png'
@@ -21,19 +26,36 @@ import logo from './images/logo.png'
  * @returns 登录路由组件
  */
 export default function Login() {
+    const navigate = useNavigate();
+    const user = memoryUtils.user;
+    // 如果已经登录, 自动跳转到管理界面(在render中)
+    if (user && user._id) {
+        // 自动跳转到管理界面(在render中)
+        return <Navigate to='/' replace />
+    }
 
-    const Item = Form.Item
+    const Item = Form.Item;
 
     const onFinish = (values) => {
         console.log('Received values of form: ', values);
-        const { username, password } = values
+        const { username, password } = values;
         reqLogin(username, password).then(
             response => {
-                console.log('登录成功', response)
+                console.log('登录成功', response);
+                if (response.status === 0) {
+                    // const result = response.data;
+                    message.success('登录成功');
+                    memoryUtils.user = response.data; //保存用户登录信息到内存
+                    storageUtils.saveUser(response.data); //保存用户登录信息到localStorage
+                    // 跳转到管理界面
+                    navigate('/', { replace: true });
+                } else {
+                    message.error(response.msg);
+                }
             }
         ).catch(
             error => {
-                console.log('登录失败', error)
+                console.log('登录失败', error);
             }
         )
     }
