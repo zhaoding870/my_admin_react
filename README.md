@@ -6,6 +6,7 @@
     axios
     jsoup
     promise / await / async
+    store (Local Storage)
 
 ## 2. 开发环境搭建
     2.1 使用 Vite 创建项目
@@ -34,3 +35,20 @@
     登陆成功后，保存用户到 内存
     保存用户到 local storage 中 (localStorage),实现自动登陆功能
         npm i store
+
+## 7. react-router-dom 
+    安装 react-router-dom 6
+
+    react-router 中实现页面跳转
+        命令式导航，通常在 JavaScript 中使用，比如事件处理函数，类似于调用函数实现页面跳转
+        ```
+        navigate('/', { replace: true })
+        ```
+
+        声明式导航， 通常在 JSX 中使用，比如渲染逻辑中根据某个条件跳转
+        ```
+        <Navigate to='/' replace />
+        ```
+        
+## 6. Admin 页面布局
+    

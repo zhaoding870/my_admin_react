@@ -17,7 +17,7 @@ import {
 import { reqLogin } from '../../api'
 import memoryUtils from '../../utils/memoryUtils'
 import storageUtils from '../../utils/storageUtils'
-import './login.less'
+import './index.less'
 
 import logo from './images/logo.png'
 
@@ -48,6 +48,7 @@ export default function Login() {
                     memoryUtils.user = response.data; //保存用户登录信息到内存
                     storageUtils.saveUser(response.data); //保存用户登录信息到localStorage
                     // 跳转到管理界面
+                    // 这里使用replace, 不会再回退到登录页面
                     navigate('/', { replace: true });
                 } else {
                     message.error(response.msg);
