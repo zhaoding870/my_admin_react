@@ -19,7 +19,7 @@ import memoryUtils from '../../utils/memoryUtils'
 import storageUtils from '../../utils/storageUtils'
 import './index.less'
 
-import logo from './images/logo.png'
+import logo from '../../assets/images/logo.png'
 
 /**
  * 

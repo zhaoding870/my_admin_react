@@ -1,13 +1,12 @@
 import React from 'react'
 
-import { Navigate } from 'react-router-dom'
+import { Navigate, Outlet } from 'react-router-dom'
 import { Layout } from 'antd'
 
 import LeftNav from '../../components/left-nav'
 import Header from '../../components/header'
 
 import memoryUtils from '../../utils/memoryUtils'
-
 
 /**
  * 
@@ -28,7 +27,9 @@ export default function Admin() {
                 </Sider>
                 <Layout>
                     <Header />
-                    <Content style={{ backgroundColor: 'white' }}>Content</Content>
+                    <Content style={{ backgroundColor: 'white' }}>
+                        <Outlet />
+                    </Content>
                     <Footer style={{ textAlign: 'center', color: '#ccc' }}>
                         推荐使用谷歌浏览器，可以获得更佳页面操作体验
                     </Footer>
