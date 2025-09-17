@@ -27,7 +27,7 @@ export default function Admin() {
                 </Sider>
                 <Layout>
                     <Header />
-                    <Content style={{ backgroundColor: 'white' }}>
+                    <Content style={{ margin: 20, backgroundColor: '#fff' }}>
                         <Outlet />
                     </Content>
                     <Footer style={{ textAlign: 'center', color: '#ccc' }}>
