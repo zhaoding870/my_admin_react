@@ -23,6 +23,9 @@ export default defineConfig({
         javascriptEnabled: true,
         modifyVars: {
           '@primary-color': '#1DA57A', // 可自定义主题色
+          '@text-color': 'gray',    // 修改文本颜色
+          '@heading-color': 'gray', // 修改标题颜色
+          // '@item-hover-bg': '#679c32ff', // 修改列表项 hover 背景色
         },
       },
     },
