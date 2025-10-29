@@ -17,6 +17,9 @@ import Login from './pages/login';
 import Home from './pages/home';
 import Category from './pages/category';
 import Product from './pages/product';
+import ProductHome from './pages/product/product-home';
+import ProductDetail from './pages/product/product-detail';
+import ProductAddUpdate from './pages/product/product-addupdate';
 import User from './pages/user';
 import Role from './pages/role';
 import Bar from './pages/charts/bar';
@@ -29,11 +32,11 @@ const router = createBrowserRouter([
     element: <Login />
   },
   {
-    path: "/*",
+    path: "/",
     element: <Admin />,
     errorElement: <Navigate to='/home' replace />,
     children: [
-      {
+      { // 当浏览器路径为 / 时, 自动重定向到 /home
         index: true,
         element: <Navigate to='/home' replace />
       },
@@ -46,8 +49,22 @@ const router = createBrowserRouter([
         element: <Category />
       },
       {
-        path: "product/*",
-        element: <Product />
+        path: "product",
+        element: <Product />,
+        children: [
+          {
+            path: "home",
+            element: <ProductHome />
+          },
+          {
+            path: "detail",
+            element: <ProductDetail />
+          },
+          {
+            path: "addupdate",
+            element: <ProductAddUpdate />
+          }
+        ]
       },
       {
         path: "user",

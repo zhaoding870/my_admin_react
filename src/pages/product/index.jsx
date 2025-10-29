@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+
+import { Outlet } from 'react-router-dom';
 
 export default function Product() {
     return (
         <div>
-            product Page
+            <Outlet />
         </div>
     )
 }
