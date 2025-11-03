@@ -21,3 +21,20 @@ export const reqUpdateCategory = ({ categoryId, categoryName }) => ajax(BASE + '
 
 // 获取商品分页列表
 export const reqProducts = (pageNum, pageSize) => ajax(BASE + '/manage/product/list', { pageNum, pageSize });
+
+/**
+ * 搜查商品分页列表
+ * @param {*} pageNum 
+ * @param {*} pageSize 
+ * @param {*} searchName 
+ * @param {*} searchType ： productDesc/ productName。按照哪个字段搜索
+ * productDesc 表示按商品描述搜索， productName表示按商品名称搜索
+ * 
+ * 变量的值当作对象的key时，必须用[]包起来
+ * @returns 
+ */
+export const reqSearchProducts = (pageNum, pageSize, searchName, searchType) => ajax(BASE + '/manage/product/search', {
+    pageNum,
+    pageSize,
+    [searchType]: searchName
+});
