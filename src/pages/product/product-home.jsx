@@ -1,23 +1,23 @@
-import React, {
-    useMemo, useState, useEffect,
-    useCallback
-} from 'react';
-
 import {
-    Card,
-    Select,
-    Input,
     Button,
+    Card,
+    Input,
+    Select,
     Table
 } from 'antd';
-
-import {
-    PlusOutlined
-} from '@ant-design/icons';
+import React, {
+    useCallback,
+    useEffect,
+    useMemo,
+    useState
+} from 'react';
+import { reqProducts, reqSearchProducts } from '../../api';
 
 import LinkButton from '../../components/link-button';
 import { PAGE_SIZE } from '../../utils/constraint';
-import { reqProducts, reqSearchProducts } from '../../api';
+import {
+    PlusOutlined
+} from '@ant-design/icons';
 
 export default function ProductHome() {
     // 商品列表
@@ -118,7 +118,7 @@ export default function ProductHome() {
             title: '操作',
             render: () => (
                 <>
-                    <LinkButton >详情</LinkButton>
+                    <LinkButton onClick={() => }>详情</LinkButton>
                     <br />
                     <LinkButton >修改</LinkButton>
                 </>

@@ -1,25 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import './index.less';
 
-import { Modal } from 'antd';
-
+import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import LinkButton from '../../components/link-button';
-
+import { Modal } from 'antd';
 import { formatDate } from '../../utils/dateUtils';
+import { getTitle } from '../../utils/menuConfig';
 import memoryUtils from '../../utils/memoryUtils';
 import storageUtils from '../../utils/storageUtils';
-import { getTitle } from '../../utils/menuConfig';
-import './index.less';
 
 /**
  * 
  * @returns 头部组件
  */
-const user = memoryUtils.user;
 export default function Header() {
     // 当前时间
     const [currentTime, setCurrentTime] = useState(formatDate(new Date()));
+    const user = memoryUtils.user;
 
     // 实时更新当前时间
     useEffect(() => {

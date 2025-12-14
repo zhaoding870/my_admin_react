@@ -1,6 +1,4 @@
-import React from 'react'
-
-import { useNavigate, Navigate } from 'react-router-dom'
+import './index.less'
 
 import {
     Button,
@@ -8,18 +6,17 @@ import {
     Input,
     message
 } from 'antd'
-
 import {
     LockOutlined,
     UserOutlined
 } from '@ant-design/icons'
+import { Navigate, useNavigate } from 'react-router-dom'
 
-import { reqLogin } from '../../api'
-import memoryUtils from '../../utils/memoryUtils'
-import storageUtils from '../../utils/storageUtils'
-import './index.less'
-
+import React from 'react'
 import logo from '../../assets/images/logo.png'
+import memoryUtils from '../../utils/memoryUtils'
+import { reqLogin } from '../../api'
+import storageUtils from '../../utils/storageUtils'
 
 /**
  * 
@@ -43,6 +40,7 @@ export default function Login() {
             response => {
                 console.log('登录成功', response);
                 if (response.status === 0) {
+                    console.info( response.data );
                     // const result = response.data;
                     message.success('登录成功');
                     memoryUtils.user = response.data; //保存用户登录信息到内存

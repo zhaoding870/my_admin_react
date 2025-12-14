@@ -36,5 +36,7 @@ export const reqProducts = (pageNum, pageSize) => ajax(BASE + '/manage/product/l
 export const reqSearchProducts = (pageNum, pageSize, searchName, searchType) => ajax(BASE + '/manage/product/search', {
     pageNum,
     pageSize,
-    [searchType]: searchName
+    "searchName": searchName,
+    "searchType":searchType
+    
 });
